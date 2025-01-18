@@ -19,20 +19,24 @@ const Card: React.FC<CardProps> = ({
   weight,
 }) => (
   <div className="col-12 col-md-4 col-lg-3 mb-4">
-    <div className="profile-card-4 text-center">
-      <img src={image} alt={name} className="img img-responsive" />
+    <div className="project-card-4 text-center">
+      <img
+        style={{ width: "100%" }}
+        src={image}
+        className="img img-responsive"
+      />
       <div className="profile-content">
         <div className="profile-name">
           {name}
-          <p>{company}</p>
+          <p>{company} (India)</p>
         </div>
         <div className="profile-supplier">
           <p className="small">
-            Earliest Delivery:{" "}
-            <span className="text-muted">{deliveryDate}</span>
+            Earliest Delivery:<span className="text-muted">{deliveryDate}</span>
           </p>
         </div>
         <div className="profile-description">{description}</div>
+
         <div className="row">
           <div className="col-xs-4 col-md-4">
             <div className="profile-overview">

@@ -1,3 +1,6 @@
+import Button from "../forms/Button";
+import TextInput from "../forms/TextInput";
+
 const Footer = () => (
   <footer>
     <div className="container text-center text-md-start">
@@ -11,13 +14,18 @@ const Footer = () => (
 
         <p className="mt-2">Subscribe to our newsletter</p>
         <div className="input-group mb-3 d-flex justify-content-center">
-          <input
+          <TextInput
+            maxWidth="300px"
+            placeholder="Enter your email"
             type="email"
             className="form-control form-control-sm custom-input"
-            placeholder="Enter your email"
-            style={{ maxWidth: "300px" }}
           />
-          <button className="btn btn-success btn-sm">Subscribe</button>
+          <Button
+            placeholder="Subscribe"
+            maxWidth="300px"
+            type="button"
+            className="btn-success"
+          />
         </div>
       </div>
 
