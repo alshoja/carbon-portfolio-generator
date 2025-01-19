@@ -17,6 +17,7 @@
     position: relative;
     cursor: pointer;
     margin-top: 20px;
+    min-height: 600px;
 }
 
 .project-card-4 img {
