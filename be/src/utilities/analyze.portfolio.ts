@@ -11,26 +11,34 @@ export function analyzeProjects(
     0
   );
   const portfolio: ProjectPortfolio[] = projects.map((project) => {
+    const {
+      distributionWeight,
+      offeredVolumeInTons,
+      pricePerTon,
+      country,
+      id,
+    } = project;
+
     let maxAllocation = Math.floor(
-      (project.distributionWeight / totalWeight) * requestedCreditsInTons
+      (distributionWeight / totalWeight) * requestedCreditsInTons
     );
     let allocation = maxAllocation;
 
-    if (allocation > project.offeredVolumeInTons) {
-      allocation = project.offeredVolumeInTons;
+    if (allocation > offeredVolumeInTons) {
+      allocation = offeredVolumeInTons;
     }
 
-    if (allocation > remainingTons) {
+    if (allocation >= remainingTons) {
       allocation = remainingTons;
     }
 
     remainingTons -= allocation;
 
     return {
-      id: project.id,
+      id,
       ...project,
       allocatedTons: allocation,
-      summary: `${project.name} (${project.country}) offers ${project.offeredVolumeInTons} tons of carbon credits at $${project.pricePerTon} per ton.`,
+      summary: `${project.name} (${country}) offers ${offeredVolumeInTons} tons of carbon credits at $${pricePerTon} per ton.`,
     };
   });
 

@@ -4,7 +4,7 @@ import { Repository } from "typeorm";
 import { Project } from "./entities/project.entity";
 import { ProjectPortfolio } from "./interfaces/Portfolio.interface";
 import { RequestTonsDto } from "./dto/request-tons.dto";
-import { analyzeProjects } from "src/utilities/analyze.portfolio";
+import { analyzeProjects } from "../utilities/analyze.portfolio";
 
 @Injectable()
 export class ProjectService {

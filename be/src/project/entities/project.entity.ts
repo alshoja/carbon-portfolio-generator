@@ -1,4 +1,4 @@
-import { DecimalColumnTransformer } from "src/shared/transformers/decimal.transformer";
+import { DecimalColumnTransformer } from "../../shared/transformers/decimal.transformer";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
