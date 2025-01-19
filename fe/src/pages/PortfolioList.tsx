@@ -5,6 +5,7 @@ import Card from "../components/Card";
 import { AppDispatch, RootState } from "../store";
 import { fetchCardData } from "../store/projects.slice";
 import LoadingSpinner from "../components/Spinner";
+import ErrorComponent from "../components/Error";
 
 const PortFolioList = () => {
   const location = useLocation();
@@ -29,7 +30,9 @@ const PortFolioList = () => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <ErrorComponent message="Something went wrong. Please try again later." />
+    );
   }
 
   return (

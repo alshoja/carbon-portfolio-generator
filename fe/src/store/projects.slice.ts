@@ -22,21 +22,18 @@ const initialState: ProjectState = {
   loading: false,
   error: null,
 };
-
+const apiUrl = import.meta.env.VITE_API_URL;
 export const fetchCardData = createAsyncThunk<
   Project[],
   { requestedTons: number }
 >("cards/fetchCardData", async (inputData) => {
-  const response = await fetch(
-    "http://localhost:5000/api/project/generate/portfolio",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(inputData),
-    }
-  );
+  const response = await fetch(`${apiUrl}project/generate/portfolio`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(inputData),
+  });
   const data: Project[] = await response.json();
   return data;
 });

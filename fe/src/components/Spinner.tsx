@@ -1,16 +1,14 @@
 import React from "react";
-import "../styles/spinner.css"; // Ensure you have the correct path to your CSS
-
 interface LoadingSpinnerProps {
-  size?: string; // Customize the size of the spinner
-  color?: string; // Customize the color of the spinner
-  message?: string; // Message to display inside the spinner
+  size?: string;
+  color?: string;
+  message?: string;
 }
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
-  size = "50px", // Default size
-  color = "#007bff", // Default color
-  message = "Loading...", // Default message
+  size = "50px",
+  color = "#007bff",
+  message = "Loading...",
 }) => {
   return (
     <div className="loading-overlay">
