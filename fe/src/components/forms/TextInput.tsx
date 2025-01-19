@@ -5,6 +5,9 @@ interface CustomInputProps {
   maxWidth: string;
   type: string;
   className: string;
+  value?: string | null | undefined;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const CustomTextInput: React.FC<CustomInputProps> = ({
@@ -12,6 +15,8 @@ const CustomTextInput: React.FC<CustomInputProps> = ({
   maxWidth,
   type,
   className,
+  onChange,
+  onKeyDown,
 }) => {
   return (
     <input
@@ -19,6 +24,8 @@ const CustomTextInput: React.FC<CustomInputProps> = ({
       className={className}
       placeholder={placeholder}
       style={{ maxWidth }}
+      onChange={onChange}
+      onKeyDown={onKeyDown}
     />
   );
 };

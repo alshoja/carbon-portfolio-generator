@@ -1,101 +1,51 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import Card from "../components/Card";
-import PortfolioGenerator from "../components/Portfolio";
-
-const _cardsData = [
-  {
-    image:
-      "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_images/Fugitives/38bb530f5caf513be9f2a41f2d909f47-min.jpeg",
-    name: "EverGreen CarbonScape",
-    company: "Carbon Solutions (India)",
-    deliveryDate: "25th January 2025",
-    description:
-      "The 'EverGreen CarbonScape' project is dedicated to combatting climate change by restoring and preserving vital forest ecosystems.",
-    price: 250,
-    volume: 168,
-    weight: 168,
-  },
-  {
-    image:
-      "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_images/Fugitives/38bb530f5caf513be9f2a41f2d909f47-min.jpeg",
-    name: "EverGreen CarbonScape",
-    company: "Carbon Solutions (India)",
-    deliveryDate: "25th January 2025",
-    description:
-      "The 'EverGreen CarbonScape' project is dedicated to combatting climate change by restoring and preserving vital forest ecosystems.",
-    price: 250,
-    volume: 168,
-    weight: 168,
-  },
-  {
-    image:
-      "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_images/Fugitives/38bb530f5caf513be9f2a41f2d909f47-min.jpeg",
-    name: "EverGreen CarbonScape",
-    company: "Carbon Solutions (India)",
-    deliveryDate: "25th January 2025",
-    description:
-      "The 'EverGreen CarbonScape' project is dedicated to combatting climate change by restoring and preserving vital forest ecosystems.",
-    price: 250,
-    volume: 168,
-    weight: 168,
-  },
-  {
-    image:
-      "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_images/Fugitives/38bb530f5caf513be9f2a41f2d909f47-min.jpeg",
-    name: "EverGreen CarbonScape",
-    company: "Carbon Solutions (India)",
-    deliveryDate: "25th January 2025",
-    description:
-      "The 'EverGreen CarbonScape' project is dedicated to combatting climate change by restoring and preserving vital forest ecosystems.",
-    price: 250,
-    volume: 168,
-    weight: 168,
-  },
-  {
-    image:
-      "https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/project_type_sample_images/Fugitives/38bb530f5caf513be9f2a41f2d909f47-min.jpeg",
-    name: "EverGreen CarbonScape",
-    company: "Carbon Solutions (India)",
-    deliveryDate: "25th January 2025",
-    description:
-      "The 'EverGreen CarbonScape' project is dedicated to combatting climate change by restoring and preserving vital forest ecosystems.",
-    price: 250,
-    volume: 168,
-    weight: 168,
-  },
-];
+import { AppDispatch, RootState } from "../store";
+import { fetchCardData } from "../store/projects.slice";
+import LoadingSpinner from "../components/Spinner";
 
 const PortFolioList = () => {
-  const [cardsData, setCardsData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const dispatch: AppDispatch = useDispatch();
+
+  const queryParams = new URLSearchParams(location.search);
+  const creditsRequested = queryParams.get("credits");
+  const {
+    data: projectsData,
+    loading,
+    error,
+  } = useSelector((state: RootState) => state.projects);
 
   useEffect(() => {
-    const fetchCardData = async () => {
-      try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const data = await response.json();
-        console.log("🚀 ~ fetchCardData ~ data:", data)
-        setCardsData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchCardData();
-  }, []);
+    if (creditsRequested) {
+      dispatch(fetchCardData({ requestedTons: Number(creditsRequested) }));
+    }
+  }, [dispatch, creditsRequested]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner message="Please wait, fetching data..." />;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
   }
 
   return (
     <>
-      <PortfolioGenerator />
+      <div className="container">
+        <h2 className="text-center mb-4 d-flex justify-content-center">
+          Projects
+        </h2>
+        <p className="text-center text-muted">
+          Here are some projects that can accommodate {creditsRequested}{" "}
+          credits.
+        </p>
+      </div>
       <div className="container-fluid">
-        <div className="row justify-content-between">
-          {_cardsData.map((card, index) => (
+        <div className="row justify-content-start">
+          {projectsData.map((card, index) => (
             <Card key={index} {...card} />
           ))}
         </div>

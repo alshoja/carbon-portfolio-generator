@@ -1,8 +1,6 @@
-import TextInput from "../components/forms/TextInput";
-import Button from "./forms/Button";
+import InputGroup from "./forms/InputGroup";
 
 const Banner = () => {
-  // const navigate = useNavigate();
   return (
     <>
       <div className="container banner">
@@ -15,18 +13,7 @@ const Banner = () => {
               ease to make a positive impact on the environment.
             </p>
             <div className="input-group mb-3 d-flex justify-content-start">
-              <TextInput
-                maxWidth="300px"
-                placeholder="Enter your Credits"
-                type="text"
-                className="form-control form-control-sm custom-input"
-              />
-              <Button
-                placeholder="Generate Portfolio"
-                maxWidth="300px"
-                type="button"
-                className="btn-success"
-              />
+              <InputGroup />
             </div>
           </div>
           <div className="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
