@@ -1,5 +1,5 @@
-import Button from "./Button";
-import TextInput from "./TextInput";
+import Button from "./forms/Button";
+import TextInput from "./forms/TextInput";
 
 const PortfolioGenerator = () => (
   <div className="container">
