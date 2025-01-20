@@ -4,21 +4,11 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { AppConfig, DatabaseConfig } from "./config";
-import { ServeStaticModule } from "@nestjs/serve-static";
-import { join } from "path";
 import { ProjectModule } from './project/project.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, "..", "../uploads"),
-      serveStaticOptions: {
-        redirect: false,
-        index: false,
-      },
-      exclude: ["/api/(.*)"],
-    }),
     ConfigModule.forRoot({
       isGlobal: true,
       cache: true,
