@@ -94,6 +94,7 @@ npm run start:dev
 - **Test cases**: Currently, test cases are not included in the frontend code. Adding test cases will help ensure better reliability and facilitate easier maintenance in the future.
 - **Component Reusability**: The components could be structured in a more reusable way. Extracting logic into smaller, more modular components will improve scalability and make the code easier to maintain.
 - **CSS Preprocessing**: The CSS could be improved by using Sass (Syntactically Awesome Stylesheets), which provides more powerful features such as variables, nesting, and mixins to make the styles more organized and maintainable.
+- **UI/UX**: Afcourse am not a designer 👱
 
 ### Backend
 
