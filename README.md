@@ -1,5 +1,5 @@
 
-# Portfolio Project
+# Carbon Portfolio Generator 
 
 This project uses Docker to set up a PostgreSQL database, backend, and frontend services. The backend connects to the PostgreSQL database, and the frontend communicates with the backend API.
 
