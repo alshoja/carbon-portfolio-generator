@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface CardProps {
   id: number;
   allocatedTons: number;
@@ -28,11 +30,7 @@ const Card: React.FC<CardProps> = ({
   <div className="col-12 col-md-4 col-lg-3 mb-4">
     <div className="project-card-4 text-center">
       <div className="img-responsive">
-        <img
-          style={{ width: "100%" }}
-          src={image}
-          className="img"
-        />
+        <img style={{ width: "100%" }} src={image} className="img" />
       </div>
 
       <div className="profile-content">

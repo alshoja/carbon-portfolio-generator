@@ -44,16 +44,25 @@ const PortFolioList = () => {
         <h2 className="text-center mb-4 d-flex justify-content-center">
           Projects
         </h2>
-        <p className="text-center text-muted">
-          Here are some projects that can accommodate {creditsRequested}{" "}
-          credits.
-        </p>
+
+        {projectsData.length > 0 ? (
+          <p className="text-center text-muted">
+            Here are some projects that can accommodate {creditsRequested}{" "}
+            credits.
+          </p>
+        ) : (
+          <ErrorComponent
+            heading="Oops!"
+            message="No projects at the movement"
+          />
+        )}
       </div>
+
       <div className="container-fluid">
         <div className="row justify-content-start">
-          {projectsData.map((card, index) => (
-            <Card key={index} {...card} />
-          ))}
+          {projectsData.length > 0
+            ? projectsData.map((card, index) => <Card key={index} {...card} />)
+            : ""}
         </div>
       </div>
     </>
