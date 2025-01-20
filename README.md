@@ -42,7 +42,7 @@ POSTGRESQL_PASSWORD=portfolio@123
 
 VITE_API_URL=http://localhost:5000/api/
 ```
-### 3.  Start the Docker containers
+### 3.  Start the Docker containers (Option 1)
 
 Run the following command to start all services using Docker Compose:
 
@@ -59,8 +59,21 @@ This will start the PostgreSQL database, backend, and frontend services in conta
 
 The database will be initialized with the data given in the url [Full-stack Code Challenge - Portfolio Generation](https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/tech/fullstack-code-challenge/Full-stack+Code+Challenge-+Portfolio+generation.pdf)
 
+### 5. Stopping the services
 
-### 5. Running in Development Mode
+To stop the Docker containers, run the following command:
+```bash
+docker-compose down
+```
+
+### 6. If your Database is up but fe and be services failed (Option 2) ?
+
+You can use the make file inside, run the following command (don`t forget to make .env in root folders (be and fe) if you are using this ):
+```bash
+make run 
+```
+
+### 7. Running in Development Mode (Option 3)
 
 If you want to run the frontend or backend in development mode, you can use the following commands in the respective directories:
 #Frontend and Backend 
@@ -72,19 +85,6 @@ npm run dev
 cd be
 npm install
 npm run start:dev
-```
-### 5. Stopping the services
-
-To stop the Docker containers, run the following command:
-```bash
-docker-compose down
-```
-
-### 5. If your Database is up but fe and be services failed ?
-
-You can use the make file inside, run the following command (don`t forget to make .env in root folders (be and fe) if you are using this ):
-```bash
-make run 
 ```
 
 ## Improvements
