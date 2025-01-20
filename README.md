@@ -86,3 +86,20 @@ You can use the make file inside, run the following command (don`t forget to mak
 ```bash
 make run 
 ```
+
+## Improvements
+
+### Frontend
+
+- **Test cases**: Currently, test cases are not included in the frontend code. Adding test cases will help ensure better reliability and facilitate easier maintenance in the future.
+- **Component Reusability**: The components could be structured in a more reusable way. Extracting logic into smaller, more modular components will improve scalability and make the code easier to maintain.
+- **CSS Preprocessing**: The CSS could be improved by using Sass (Syntactically Awesome Stylesheets), which provides more powerful features such as variables, nesting, and mixins to make the styles more organized and maintainable.
+
+### Backend
+
+- **Middleware for Consistent Responses**: A middleware could be added to standardize the response format across the API. For instance, wrapping the response data in a `data` variable would provide consistency and improve the clarity of the response structure.
+- **Test Cases**: More test cases should be added to cover additional edge cases and ensure better test coverage. This will improve the reliability of the backend and ensure smoother deployments.
+
+### Docker
+
+- **Development Setup**: Currently, the Docker setup is optimized for development. To improve it further, you can set the `NODE_ENV` to `production` for both frontend and backend services in the Docker configuration. This will ensure a more optimized build and performance when running in production and run it from production build.
