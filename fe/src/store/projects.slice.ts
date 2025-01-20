@@ -1,18 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-interface Project {
-  image: string;
-  name: string;
-  company: string;
-  deliveryDate: string;
-  description: string;
-  price: number;
-  volume: number;
-  weight: number;
-}
+import { CardProps } from "../components/Card";
 
 interface ProjectState {
-  data: Project[];
+  data: CardProps[];
   loading: boolean;
   error: string | null;
 }
@@ -24,7 +14,7 @@ const initialState: ProjectState = {
 };
 const apiUrl = import.meta.env.VITE_API_URL;
 export const fetchCardData = createAsyncThunk<
-  Project[],
+CardProps[],
   { requestedTons: number }
 >("cards/fetchCardData", async (inputData) => {
   const response = await fetch(`${apiUrl}project/generate/portfolio`, {
@@ -34,7 +24,7 @@ export const fetchCardData = createAsyncThunk<
     },
     body: JSON.stringify(inputData),
   });
-  const data: Project[] = await response.json();
+  const data: CardProps[] = await response.json();
   return data;
 });
 

@@ -31,7 +31,6 @@ export class AllHttpExceptionFilter implements ExceptionFilter {
       path: httpAdapter.getRequestUrl(ctx.getRequest()),
     };
     console.log('🚀 Exception Occurred:', exception);
-
     httpAdapter.reply(ctx.getResponse(), responseBody, httpStatus);
   }
 }

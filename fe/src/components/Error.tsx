@@ -2,29 +2,17 @@ import React from "react";
 
 interface ErrorComponentProps {
   message: string;
+  heading: string;
 }
 
-const ErrorComponent: React.FC<ErrorComponentProps> = ({ message }) => {
+const ErrorComponent: React.FC<ErrorComponentProps> = ({
+  message,
+  heading,
+}) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "20vh",
-      }}
-    >
-      <div
-        style={{
-          textAlign: "center",
-          padding: "20px",
-          borderRadius: "8px",
-          background: "#ffff",
-        }}
-      >
-        <h2>Error</h2>
-        <p>{message}</p>
-      </div>
+    <div className="error-container">
+      <h1>{heading}</h1>
+      <p>{message}</p>
     </div>
   );
 };

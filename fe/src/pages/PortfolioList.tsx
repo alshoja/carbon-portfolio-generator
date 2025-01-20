@@ -31,7 +31,10 @@ const PortFolioList = () => {
 
   if (error) {
     return (
-      <ErrorComponent message="Something went wrong. Please try again later." />
+      <ErrorComponent
+        heading="Error"
+        message="Something went wrong. Please try again later."
+      />
     );
   }
 

@@ -1,4 +1,4 @@
-interface CardProps {
+export interface CardProps {
   id: number;
   allocatedTons: number;
   country: string;
@@ -9,8 +9,8 @@ interface CardProps {
   name: string;
   offeredVolumeInTons: number;
   pricePerTon: number;
-  summary: string;
-  supplierName: string;
+  summary?: string;
+  supplierName?: string;
 }
 
 const Card: React.FC<CardProps> = ({
