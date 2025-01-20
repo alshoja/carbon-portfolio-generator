@@ -82,7 +82,7 @@ docker-compose down
 
 ### 5. If your Database is up but fe and be services failed ?
 
-You can use the make file inside, run the following command:
+You can use the make file inside, run the following command (don`t forget to make .env in root folders (be and fe) if you are using this ):
 ```bash
 make run 
 ```
