@@ -59,7 +59,7 @@ const PortFolioList = () => {
       </div>
 
       <div className="container-fluid">
-        <div className="row justify-content-start">
+        <div className="row justify-content-start card-list">
           {projectsData.length > 0
             ? projectsData.map((card, index) => <Card key={index} {...card} />)
             : ""}
