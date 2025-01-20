@@ -53,9 +53,9 @@ This will start the PostgreSQL database, backend, and frontend services in conta
 
 ### 4.  Access the services
 
-Frontend: Once the containers are up, you can access the frontend at http://localhost:3000.
-Backend: The backend will be accessible at http://localhost:5000.
-PostgreSQL: The PostgreSQL database can be accessed at localhost:<POSTGRESQL_PORT> using the credentials defined in your .env file.
+- **Frontend**: Once the containers are up, you can access the frontend at [http://localhost:3000](http://localhost:3000).
+- **Backend**: The backend will be accessible at [http://localhost:5000](http://localhost:5000).
+- **PostgreSQL**: The PostgreSQL database can be accessed at `localhost:<POSTGRESQL_PORT>` using the credentials defined in your `.env` file.
 
 The database will be initialized with the data given in the url [Full-stack Code Challenge - Portfolio Generation](https://ceezer-public-assets.s3.eu-central-1.amazonaws.com/tech/fullstack-code-challenge/Full-stack+Code+Challenge-+Portfolio+generation.pdf)
 
