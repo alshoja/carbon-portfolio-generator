@@ -1,9 +1,9 @@
-import Banner from "../components/Banner";
+import HomeContent from "../components/HomeContent";
 
 function Home() {
   return (
     <>
-      <Banner></Banner>
+      <HomeContent />
     </>
   );
 }

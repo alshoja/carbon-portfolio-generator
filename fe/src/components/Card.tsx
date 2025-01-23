@@ -1,59 +1,75 @@
-interface CardProps {
+import React from 'react';
+
+export interface CardProps {
+  id: number;
+  allocatedTons: number;
+  country: string;
+  description: string;
+  distributionWeight: number;
+  earliestDelivery: string;
   image: string;
   name: string;
-  company: string;
-  deliveryDate: string;
-  description: string;
-  price: number;
-  volume: number;
-  weight: number;
+  offeredVolumeInTons: number;
+  pricePerTon: number;
+  summary?: string;
+  supplierName?: string;
 }
+
 const Card: React.FC<CardProps> = ({
   image,
   name,
-  company,
-  deliveryDate,
+  allocatedTons,
+  country,
   description,
-  price,
-  volume,
-  weight,
+  distributionWeight,
+  earliestDelivery,
+  offeredVolumeInTons,
+  pricePerTon,
+  supplierName,
 }) => (
   <div className="col-12 col-md-4 col-lg-3 mb-4">
-    <div className="project-card-4 text-center">
-      <img
-        style={{ width: "100%" }}
-        src={image}
-        className="img img-responsive"
-      />
+    <div className="project-card-4 text-center card">
+      <div className="img-responsive">
+        <img style={{ width: "100%" }} src={image} className="img" loading="lazy" />
+      </div>
+
       <div className="profile-content">
         <div className="profile-name">
           {name}
-          <p>{company} (India)</p>
+          <p>
+            {supplierName} ({country})
+          </p>
         </div>
         <div className="profile-supplier">
           <p className="small">
-            Earliest Delivery:<span className="text-muted">{deliveryDate}</span>
+            Earliest Delivery:
+            <span className="text-muted"> {earliestDelivery}</span>
           </p>
         </div>
         <div className="profile-description">{description}</div>
-
         <div className="row">
-          <div className="col-xs-4 col-md-4">
+          <div className="col-xs-3 col-md-3">
             <div className="profile-overview">
               <p>Price Per Ton</p>
-              <h4>{price}</h4>
+              <h4>{pricePerTon}</h4>
             </div>
           </div>
-          <div className="col-xs-4 col-md-4">
+          <div className="col-xs-3 col-md-3">
             <div className="profile-overview">
               <p>Offered Volume</p>
-              <h4>{volume}</h4>
+              <h4>{offeredVolumeInTons}</h4>
             </div>
           </div>
-          <div className="col-xs-4 col-md-4">
+          <div className="col-xs-3 col-md-3">
             <div className="profile-overview">
               <p>Distri Weight</p>
-              <h4>{weight}</h4>
+              <h4>{distributionWeight}</h4>
+            </div>
+          </div>
+          <div className="col-xs-3 col-md-3">
+            <div className="profile-overview ">
+              <p>Credits Allocated</p>
+              <h4 className="text-success">{allocatedTons}</h4>
             </div>
           </div>
         </div>

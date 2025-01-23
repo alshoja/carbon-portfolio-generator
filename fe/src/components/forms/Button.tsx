@@ -5,16 +5,22 @@ interface ButtonProps {
   maxWidth: string;
   type: "button" | "submit" | "reset";
   className?: string;
+  onClick?: () => void;
 }
-
 const Button: React.FC<ButtonProps> = ({
   placeholder,
   maxWidth,
   type,
   className,
+  onClick,
 }) => {
   return (
-    <button type={type} className={`btn ${className}`} style={{ maxWidth }}>
+    <button
+      type={type}
+      className={`btn ${className}`}
+      style={{ maxWidth }}
+      onClick={onClick}
+    >
       {placeholder}
     </button>
   );
